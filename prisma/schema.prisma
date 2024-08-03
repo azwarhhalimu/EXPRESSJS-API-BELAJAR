@@ -1,0 +1,16 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model produk {
+  id_produk   Int      @id @default(autoincrement())
+  nama_produk String   @db.VarChar(50)
+  harga       Int
+  stok        Int
+  create_at   DateTime @default(now()) @db.Timestamp(0)
+}
